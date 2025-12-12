@@ -1,17 +1,14 @@
 "use client";
-export const dynamic = "force-dynamic";
-export const fetchCache = "force-no-store";
 
-import { useSearchParams, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-export default function AddressPage() {
+export default function AddressPage({ searchParams }) {
   const router = useRouter();
-  const params = useSearchParams();
 
-  const country = params.get("country");
-  const sweet = params.get("sweet");
+  const country = searchParams.country;
+  const sweet = searchParams.sweet;
 
   const [form, setForm] = useState({
     name: "",
